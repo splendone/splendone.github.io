@@ -1,3 +1,10 @@
+---
+title: "天机器人（Tianbot）工程解析报告"
+date: 2025-07-30 10:00:00 +0800
+categories: [ros2025, blog]
+---
+
+
 # 天机器人（Tianbot）工程解析报告
 
 ## 项目概述
