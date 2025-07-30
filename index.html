@@ -4,35 +4,26 @@ layout: default
 <div class="home">
   <h1 class="page-heading">博客文章</h1>
 
-  <!-- 分类列表 -->
-  <div class="category-list">
-    <h2>文章分类</h2>
-    {% assign categories = site.categories | sort %}
-    {% for category in categories %}
-      <a href="#{{ category[0] }}" class="category-link">{{ category[0] }} ({{ category[1].size }})</a>
-    {% endfor %}
+  <!-- 只显示blog分类 -->
+  {% assign blog_posts = site.categories.blog | sort: 'date' | reverse %}
+  
+  <!-- 显示blog分类下的文章列表 -->
+  <div class="category-section">
+    <h2>Blog</h2>
+    <ul class="post-list">
+      {% for post in blog_posts %}
+        <li class="post-item">
+          <span class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
+          <h3 class="post-title">
+            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          </h3>
+          <div class="post-excerpt">
+            {{ post.excerpt }}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
-
-  <!-- 按分类显示文章 -->
-  {% assign categories = site.categories | sort %}
-  {% for category in categories %}
-    <div class="category-section">
-      <h2 id="{{ category[0] }}">{{ category[0] }}</h2>
-      <ul class="post-list">
-        {% for post in category[1] %}
-          <li class="post-item">
-            <span class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
-            <h3 class="post-title">
-              <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-            </h3>
-            <div class="post-excerpt">
-              {{ post.excerpt }}
-            </div>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endfor %}
 
   <p class="rss-subscribe">订阅 <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a></p>
 </div>
