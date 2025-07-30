@@ -7,22 +7,45 @@ layout: default
   <title>Splendone's Github Page</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 900px;
       margin: 0 auto;
       padding: 20px;
       line-height: 1.6;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    
+    header {
+      text-align: center;
+      padding: 30px 0;
+      margin-bottom: 30px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     
     h1 {
-      color: #333;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
+      color: white;
+      margin: 0;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .container {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     
     h2 {
-      color: #666;
-      margin-top: 30px;
+      color: #495057;
+      margin-top: 0;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #667eea;
+      display: inline-block;
     }
     
     .post-list {
@@ -31,8 +54,17 @@ layout: default
     }
     
     .post-item {
-      border-bottom: 1px solid #eee;
-      padding: 20px 0;
+      border-bottom: 1px solid #e9ecef;
+      padding: 25px 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .post-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      padding: 25px;
+      margin: 0 -25px;
     }
     
     .post-title {
@@ -41,37 +73,58 @@ layout: default
     
     .post-title a {
       text-decoration: none;
-      color: #333;
+      color: #495057;
+      font-weight: 600;
+      font-size: 1.3em;
+      transition: color 0.2s ease;
     }
     
     .post-title a:hover {
-      color: #007acc;
+      color: #667eea;
     }
     
     .post-date {
-      color: #999;
+      color: #6c757d;
       font-size: 0.9em;
-      margin: 5px 0;
+      margin: 8px 0;
+      font-style: italic;
     }
     
     .post-excerpt {
-      margin: 10px 0 0 0;
-      color: #666;
+      margin: 15px 0 0 0;
+      color: #6c757d;
+      line-height: 1.7;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      color: #6c757d;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
-  <h1>欢迎来到我的 GitHub Pages!</h1>
+  <header>
+    <h1>欢迎来到我的 GitHub Pages!</h1>
+  </header>
   
-  <h2>博客文章列表</h2>
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li class="post-item">
-        <h3 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-        <p class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</p>
-        <p class="post-excerpt">{{ post.excerpt }}</p>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="container">
+    <h2>博客文章列表</h2>
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li class="post-item">
+          <h3 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+          <p class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</p>
+          <!-- <p class="post-excerpt">{{ post.excerpt }}</p> -->
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 Splendone's Github Page. All rights reserved.</p>
+  </footer>
 </body>
 </html>
