@@ -1,18 +1,75 @@
+---
+layout: default
+---
 <!DOCTYPE html>
 <html>
 <head>
   <title>Splendone's Github Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    
+    h1 {
+      color: #333;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+    
+    h2 {
+      color: #666;
+      margin-top: 30px;
+    }
+    
+    .post-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .post-item {
+      border-bottom: 1px solid #eee;
+      padding: 20px 0;
+    }
+    
+    .post-title {
+      margin: 0 0 10px 0;
+    }
+    
+    .post-title a {
+      text-decoration: none;
+      color: #333;
+    }
+    
+    .post-title a:hover {
+      color: #007acc;
+    }
+    
+    .post-date {
+      color: #999;
+      font-size: 0.9em;
+      margin: 5px 0;
+    }
+    
+    .post-excerpt {
+      margin: 10px 0 0 0;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
   <h1>欢迎来到我的 GitHub Pages!</h1>
   
   <h2>博客文章列表</h2>
-  <ul>
+  <ul class="post-list">
     {% for post in site.posts %}
-      <li>
-        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-        <p>{{ post.date | date: "%Y年%m月%d日" }}</p>
-        <p>{{ post.excerpt }}</p>
+      <li class="post-item">
+        <h3 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        <p class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</p>
+        <p class="post-excerpt">{{ post.excerpt }}</p>
       </li>
     {% endfor %}
   </ul>
