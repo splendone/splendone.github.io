@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="blog-page">
+  <h1>所有文章</h1>
+  
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li class="post-item">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</p>
+        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
