@@ -1,29 +1,31 @@
 ---
 layout: default
+title: 薛定谔爱来镜月轩射箭
 ---
-<div class="home">
-  <h1 class="page-heading">博客文章</h1>
 
-  <!-- 只显示blog分类 -->
-  {% assign blog_posts = site.categories.blog | sort: 'date' | reverse %}
+<header class="site-header">
+  <h1>{{ site.title }}</h1>
+  <p>{{ site.description }}</p>
+</header>
+
+<main class="home">
+  <h2>最新文章</h2>
   
-  <!-- 显示blog分类下的文章列表 -->
-  <div class="category-section">
-    <h2>Blog</h2>
-    <ul class="post-list">
-      {% for post in blog_posts %}
-        <li class="post-item">
-          <span class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
-          <h3 class="post-title">
-            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-          </h3>
-          <div class="post-excerpt">
-            {{ post.excerpt }}
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+  <ul class="post-list">
+    {% for post in site.posts limit:5 %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <h3>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+  
+  <p><a href="/blog/">查看所有文章 →</a></p>
+</main>
 
-  <p class="rss-subscribe">订阅 <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a></p>
-</div>
+<footer class="site-footer">
+  <p>© {{ site.time | date: '%Y' }} {{ site.author }}</p>
+</footer>
