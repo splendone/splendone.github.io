@@ -10,7 +10,7 @@ layout: default
       <li class="post-item">
         <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
         <p class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</p>
-        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        <!-- <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p> -->
       </li>
     {% endfor %}
   </ul>
