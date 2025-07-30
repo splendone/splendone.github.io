@@ -1,3 +1,13 @@
-theme: jekyll-theme-minimal
-title: Octocat's homepage
-description: Bookmark this to keep an eye on my project updates!
+title: Splendone's Github Page
+email: splendone@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  这是一个关于我自己的个人博客，我会在这里分享我的知识和经验。
+baseurl: "/splendone.github.io" # the subpath of your site, e.g. /blog
+url: "https://splendone.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: jekyllrb
+github_username:  jekyll
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
