@@ -1,16 +1,6 @@
 title: 薛定谔爱来镜月轩射箭
-email: splendone@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  这是一个关于我自己的个人博客，我会在这里分享我的知识和经验。
-baseurl: "" # 用户页面应留空
-url: "https://splendone.github.io"
 
 
 # Build settings
 theme: minima
-plugins:
-  - jekyll-feed
-
-# GitHub Pages settings
-markdown: kramdown
-highlighter: rouge
+paginate: 5
