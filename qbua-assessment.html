@@ -328,24 +328,227 @@
                 <h2 class="section-title">2. QBUA架构设计</h2>
                 
                 <h3 class="subsection-title">2.1 系统架构</h3>
-                <div class="architecture-diagram">
-┌─────────────────────────────────────────┐
-│         中心协调枢纽 (Central Hub)        │
-│   跨模态融合 · 知识图谱 · 动态路由        │
-└───────────────┬─────────────────────────┘
-                │
-    ┌───────────┼───────────┐
-    │           │           │
-┌───▼───┐  ┌───▼───┐  ┌───▼────┐
-│感知脑  │  │学习脑  │  │操作脑  │
-└───┬───┘  └───┬───┘  └───┬────┘
-    │          │          │
-    └──────────┼──────────┘
-               │
-          ┌────▼────┐
-          │ 行动脑   │
-          └─────────┘
+                
+                <div class="arch-container">
+                    <!-- 中心协调枢纽 -->
+                    <div class="arch-hub">
+                        <div class="hub-title">中心协调枢纽</div>
+                        <div class="hub-subtitle">Central Coordination Hub</div>
+                        <div class="hub-features">
+                            <span class="hub-tag">跨模态融合</span>
+                            <span class="hub-tag">知识图谱</span>
+                            <span class="hub-tag">动态路由</span>
+                        </div>
+                        <div class="hub-arrows">
+                            <div class="arrow-down"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 四脑层 -->
+                    <div class="arch-brains">
+                        <div class="brain-card perception">
+                            <div class="brain-icon">👁️</div>
+                            <div class="brain-name">感知脑</div>
+                            <div class="brain-en">Perception Brain</div>
+                            <div class="brain-desc">360°多模态感知</div>
+                            <div class="brain-specs">
+                                <span class="spec">&lt;30ms</span>
+                                <span class="spec">≥95%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="brain-card learning">
+                            <div class="brain-icon">🧠</div>
+                            <div class="brain-name">学习脑</div>
+                            <div class="brain-en">Learning Brain</div>
+                            <div class="brain-desc">决策与知识管理</div>
+                            <div class="brain-specs">
+                                <span class="spec">&gt;80%</span>
+                                <span class="spec">&gt;90%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="brain-card operation">
+                            <div class="brain-icon">✋</div>
+                            <div class="brain-name">操作脑</div>
+                            <div class="brain-en">Operation Brain</div>
+                            <div class="brain-desc">24-DOF精细操作</div>
+                            <div class="brain-specs">
+                                <span class="spec">1kHz</span>
+                                <span class="spec">±0.1mm</span>
+                            </div>
+                        </div>
+                        
+                        <div class="brain-card action">
+                            <div class="brain-icon">🦿</div>
+                            <div class="brain-name">行动脑</div>
+                            <div class="brain-en">Action Brain</div>
+                            <div class="brain-desc">40+DOF全身控制</div>
+                            <div class="brain-specs">
+                                <span class="spec">3.5m/s</span>
+                                <span class="spec">30°</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 连接指示 -->
+                    <div class="arch-connections">
+                        <div class="conn-line">
+                            <span class="conn-label">双向数据流</span>
+                        </div>
+                    </div>
                 </div>
+                
+                <style>
+                    .arch-container {
+                        margin: 30px 0;
+                        padding: 30px;
+                        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                        border-radius: 16px;
+                    }
+                    
+                    .arch-hub {
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        color: white;
+                        padding: 25px;
+                        border-radius: 12px;
+                        text-align: center;
+                        margin-bottom: 30px;
+                        position: relative;
+                        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+                    }
+                    
+                    .hub-title {
+                        font-size: 22px;
+                        font-weight: bold;
+                        margin-bottom: 5px;
+                    }
+                    
+                    .hub-subtitle {
+                        font-size: 14px;
+                        opacity: 0.9;
+                        margin-bottom: 15px;
+                    }
+                    
+                    .hub-features {
+                        display: flex;
+                        justify-content: center;
+                        gap: 10px;
+                        flex-wrap: wrap;
+                    }
+                    
+                    .hub-tag {
+                        background: rgba(255,255,255,0.2);
+                        padding: 5px 12px;
+                        border-radius: 20px;
+                        font-size: 12px;
+                    }
+                    
+                    .hub-arrows {
+                        position: absolute;
+                        bottom: -15px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                    
+                    .arrow-down {
+                        width: 0;
+                        height: 0;
+                        border-left: 15px solid transparent;
+                        border-right: 15px solid transparent;
+                        border-top: 15px solid #764ba2;
+                    }
+                    
+                    .arch-brains {
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+                        gap: 15px;
+                        margin-bottom: 20px;
+                    }
+                    
+                    .brain-card {
+                        background: white;
+                        border-radius: 12px;
+                        padding: 20px 15px;
+                        text-align: center;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+                        transition: transform 0.2s, box-shadow 0.2s;
+                        border-top: 4px solid;
+                    }
+                    
+                    .brain-card:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+                    }
+                    
+                    .brain-card.perception { border-top-color: #3498db; }
+                    .brain-card.learning { border-top-color: #9b59b6; }
+                    .brain-card.operation { border-top-color: #e74c3c; }
+                    .brain-card.action { border-top-color: #27ae60; }
+                    
+                    .brain-icon {
+                        font-size: 32px;
+                        margin-bottom: 10px;
+                    }
+                    
+                    .brain-name {
+                        font-size: 16px;
+                        font-weight: bold;
+                        color: #1a1a2e;
+                        margin-bottom: 3px;
+                    }
+                    
+                    .brain-en {
+                        font-size: 11px;
+                        color: #888;
+                        margin-bottom: 10px;
+                    }
+                    
+                    .brain-desc {
+                        font-size: 13px;
+                        color: #666;
+                        margin-bottom: 12px;
+                        line-height: 1.4;
+                    }
+                    
+                    .brain-specs {
+                        display: flex;
+                        justify-content: center;
+                        gap: 5px;
+                        flex-wrap: wrap;
+                    }
+                    
+                    .spec {
+                        background: #f0f0f0;
+                        padding: 3px 8px;
+                        border-radius: 10px;
+                        font-size: 11px;
+                        color: #555;
+                        font-weight: 500;
+                    }
+                    
+                    .arch-connections {
+                        text-align: center;
+                        padding: 15px;
+                        background: white;
+                        border-radius: 8px;
+                        border: 2px dashed #ddd;
+                    }
+                    
+                    .conn-label {
+                        color: #888;
+                        font-size: 13px;
+                    }
+                    
+                    @media (max-width: 768px) {
+                        .arch-brains {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                        .arch-container {
+                            padding: 20px 15px;
+                        }
+                    }
+                </style>
                 
                 <h3 class="subsection-title">2.2 四脑分工</h3>
                 <table>
