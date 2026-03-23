@@ -7,3 +7,7 @@
 #
 layout: home
 ---
+
+## 技术报告
+
+- [QBUA 技术评估报告](./qbua-assessment.html) - Quad-Brain Unified Architecture 四脑统一架构技术评估
